@@ -10,56 +10,57 @@ Usefull Resources:
 
 ```kotlin
 interface Filter {
-fun execute(request: String)
+    fun execute(request: String)
 }
 ```
 
 ```kotlin
 data class Target(private val process: (String) -> Unit) {
-fun execute(request: String) =
-process.invoke(request)
+    fun execute(request: String) =
+        process.invoke(request)
 }
 ```
 
 ```kotlin
 class LogFilter : Filter {
-override fun execute(request: String) =
-println(request)
+    override fun execute(request: String) =
+        println(request)
 }
 ```
 
 ```kotlin
 data class FilterChain(
-private val target: Target,
-private val filters: List<Filter> = listOf()) : Filter {
+    private val target: Target,
+    private val filters: List<Filter> = listOf()) : Filter {
 
-fun with(filter: Filter) =
-copy(filters = this.filters + listOf(filter))
+    fun with(filter: Filter) =
+        copy(filters = this.filters + listOf(filter))
 
-override fun execute(request: String) {
-filters.forEach { it.execute(request) }
-.let { target.execute(request) }
-}
+    override fun execute(request: String) {
+        filters.forEach { it.execute(request) }
+            .let { target.execute(request) }
+        }
 }
 ```
 
 ```kotlin
 data class FilterManager(
-private val target: Target,
-private val chain: FilterChain = FilterChain(target)) {
+    private val target: Target,
+    private val chain: FilterChain = FilterChain(target)) {
 
-fun with(filter: Filter) = copy(chain = chain.with(filter))
+    fun with(filter: Filter) = copy(chain = chain.with(filter))
 
-fun execute(request: String) = chain.execute(request)
+    fun execute(request: String) = chain.execute(request)
+
 }
 ```
 
 ```kotlin
 fun main(args: Array<String>) {
-val target = Target { it -> println(it.toUpperCase())}
-FilterManager(target)
-.with(filter = LogFilter())
-.execute("Test")
+    val target = Target { it -> println(it.toUpperCase())}
+    FilterManager(target)
+        .with(filter = LogFilter())
+        .execute("Test")
 }
 ```
 
