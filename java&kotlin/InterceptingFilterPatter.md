@@ -2,10 +2,17 @@
 
 Recently after playing around with WebFlux Spring Security, I realised it was based on a J2EE Intercepting Filter Pattern used in the presentation layer.    
 
+**Problem**: You want to intercept and manipulate a request and a response before and after the request is processed.
+
+**Solution**: Use an Intercepting Filter as a pluggable filter to pre and postprocess requests and responses. A filter manager combines loosely coupled filters in a chain, delegating control to the appropriate filter. In this way, you can add, remove, and combine these filters in various ways without changing existing code
+
+![UML Diagram](http://www.corej2eepatterns.com/images/IFMainClass.gif)
+
 Usefull Resources: 
 
 - [Intercepting Filter Pattern in Java](https://www.baeldung.com/intercepting-filter-pattern-in-java)
 - [Core J2EE Patterns](http://www.corej2eepatterns.com/InterceptingFilter.htm)
+- [Wikipedia](https://en.wikipedia.org/wiki/Intercepting_filter_pattern)
 
 
 ```kotlin
@@ -51,7 +58,6 @@ data class FilterManager(
     fun with(filter: Filter) = copy(chain = chain.with(filter))
 
     fun execute(request: String) = chain.execute(request)
-
 }
 ```
 
