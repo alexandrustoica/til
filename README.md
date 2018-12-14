@@ -5,11 +5,11 @@ By [Alexandru Stoica](https://github.com/alexandrustoica)
 
 
 #### Categories
-* [Java & Kotlin](til/java&kotlin/)
+* [Java & Kotlin](/java&kotlin)
 
 
 #### Java & Kotlin
-* [Intercepting Filter Pattern](til/java&kotlin/InterceptingFilterPatter.md)
+* [Intercepting Filter Pattern](/java&kotlin/InterceptingFilterPatter.md)
 
 
 You are free to copy, modify, and distribute <PROJECT NAME> with attribution under the terms of the MIT license. See the [LICENSE](LICENSE.md) file for details.
