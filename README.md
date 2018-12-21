@@ -10,6 +10,7 @@ By [Alexandru Stoica](https://github.com/alexandrustoica)
 
 #### Java & Kotlin
 * [Intercepting Filter Pattern](/java&kotlin/InterceptingFilterPatter.md)
-
+* [Kotlin's Generics Extension](/java&kotlin/GenericsExtension.md)
+      
 
 You are free to copy, modify, and distribute <PROJECT NAME> with attribution under the terms of the MIT license. See the [LICENSE](LICENSE.md) file for details.
