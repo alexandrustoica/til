@@ -15,7 +15,7 @@ By [Alexandru Stoica](https://github.com/alexandrustoica)
 
 
 #### AppleScript
-* [Map, Reduce, My, As, Shell ](/applescript/MapReduceMyAs,md)
+* [Map, Reduce, My, As, Shell ](/applescript/MapReduceMyAs.md)
 
 
 You are free to copy, modify, and distribute <PROJECT NAME> with attribution under the terms of the MIT license. See the [LICENSE](LICENSE.md) file for details.
